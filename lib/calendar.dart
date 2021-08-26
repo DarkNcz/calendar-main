@@ -22,6 +22,7 @@ class _CalendarState extends State<Calendar> {
 
   TextEditingController _eventController = TextEditingController();
   int _currentIndex = 0;
+  int _selectedItem = 0;
 
   @override
   void initState() {
@@ -45,27 +46,37 @@ class _CalendarState extends State<Calendar> {
       backgroundColor: Theme.of(context).primaryColor,
       //ส่วนของหัวแอพ สร้างเพื่อไม่ให้มันติดโทรศัทพ์ ให้เว้นที่
       appBar: new AppBar(
-          title: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-            //ฝั่งซ้ายของแถบหัวแอพ
-            Text("Calendar",
-                style: Theme.of(context).primaryTextTheme.headline1),
-            //ฝั่งขวาของแถบฟัวแอพ ทำไว้ให้เลือกธีม แต่ต้องเปลี่ยนเป็นอย่างอื่นแล้วเอาธีมไปใส่ในตั้งค่า
-            Consumer<ThemeNotifier>(
-                builder: (context, notifier, child) => IconButton(
-                    icon: notifier.isDarkTheme
-                        ? FaIcon(
-                            FontAwesomeIcons.moon,
-                            size: 20,
-                            color: Colors.white,
-                          )
-                        : Icon(Icons.wb_sunny),
-                    onPressed: () => {notifier.toggleTheme()}))
-          ])
-          //title: Text("Calendar"),
-          //centerTitle: true,
+        title: new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //ฝั่งซ้ายของแถบหัวแอพ
+              Text("Calendar",
+                  style: Theme.of(context).primaryTextTheme.headline1),
+              //ฝั่งขวาของแถบฟัวแอพ ทำไว้ให้เลือกธีม แต่ต้องเปลี่ยนเป็นอย่างอื่นแล้วเอาธีมไปใส่ในตั้งค่า
+              Consumer<ThemeNotifier>(
+                  builder: (context, notifier, child) => IconButton(
+                      icon: notifier.isDarkTheme
+                          ? FaIcon(
+                              FontAwesomeIcons.moon,
+                              size: 20,
+                              color: Colors.white,
+                            )
+                          : Icon(Icons.wb_sunny),
+                      onPressed: () => {notifier.toggleTheme()}))
+            ]),
+        //title: Text("Calendar"),
+        //centerTitle: true,
+        //backgroundColor: Colors.red[800],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.red[200], Colors.blue[200]],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft),
           ),
+        ),
+        elevation: 20,
+      ),
       //ส่วนตรงกลางแอพ
       body: Padding(
         //เว้นจากขอบทรศ.ในทุกๆด้าน
@@ -75,7 +86,8 @@ class _CalendarState extends State<Calendar> {
           padding: EdgeInsets.all(20),
           //ส่วนของการตกแต่งcontainer
           decoration: BoxDecoration(
-              color: Colors.red[400], borderRadius: BorderRadius.circular(30)),
+              color: Colors.purple[100],
+              borderRadius: BorderRadius.circular(30)),
           height: 380,
           child: Column(
             //ส่วนของการตั้งค่าปฎิทิน
@@ -157,35 +169,19 @@ class _CalendarState extends State<Calendar> {
           ),
         ),
       ),
-      //แถบข้างล่างของแอพ
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        type: BottomNavigationBarType.fixed,
-        /* selectedFontSize: 20,
-        unselectedFontSize: 15,*/
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.book_sharp, color: Colors.purple),
-              label: "book",
-              backgroundColor: Colors.purple[900]),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.wallet_giftcard, color: Colors.blue),
-              label: "wallet",
-              backgroundColor: Colors.blue[900]),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.pie_chart, color: Colors.green),
-              label: "analytics",
-              backgroundColor: Colors.green[900]),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings, color: Colors.orange),
-              label: "settings",
-              backgroundColor: Colors.orange[900]),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        iconList: [
+          Icons.wallet_travel,
+          Icons.calendar_today,
+          Icons.pie_chart,
+          Icons.settings,
         ],
-        onTap: (index) {
+        onChange: (val) {
           setState(() {
-            _currentIndex = index;
+            _selectedItem = val;
           });
         },
+        defaultSelectedIndex: 1,
       ),
       //ส่วนของปุ่มกดadd เขียนเชื่อมไปหน้าcategoriesเเล้ว
       floatingActionButton: FloatingActionButton.extended(
@@ -193,47 +189,79 @@ class _CalendarState extends State<Calendar> {
           var rount = new MaterialPageRoute(
               builder: (BuildContext contex) => new Catepage());
           Navigator.of(context).push(rount);
-        }
-        /*=> showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text("Add"),
-            content: TextFormField(
-              controller: _eventController,
-            ),
-            actions: [
-              TextButton(
-                child: Text("Cancel"),
-                onPressed: () => Navigator.pop(context),
-              ),
-              TextButton(
-                child: Text("Ok"),
-                onPressed: () {
-                  if (_eventController.text.isEmpty) {
-                  } else {
-                    if (selectedEvents[selectedDay] != null) {
-                      selectedEvents[selectedDay].add(
-                        Event(title: _eventController.text),
-                      );
-                    } else {
-                      selectedEvents[selectedDay] = [
-                        Event(title: _eventController.text)
-                      ];
-                    }
-                  }
-                  Navigator.pop(context);
-                  _eventController.clear();
-                  setState(() {});
-                  return;
-                },
-              ),
-            ],
-          ),
-        )*/
-        ,
+        },
         //ข้อความและสัญลักษณ์ในปุ่ม
         label: Text("Add"),
         icon: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class CustomBottomNavigationBar extends StatefulWidget {
+  final int defaultSelectedIndex;
+  final Function(int) onChange;
+  final List<IconData> iconList;
+
+  CustomBottomNavigationBar(
+      {this.defaultSelectedIndex = 0,
+      @required this.iconList,
+      @required this.onChange});
+
+  @override
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int _selectIndex = 0;
+  List<IconData> _iconList = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _selectIndex = widget.defaultSelectedIndex;
+    _iconList = widget.iconList;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> _navBarItemList = [];
+
+    for (var i = 0; i < _iconList.length; i++) {
+      _navBarItemList.add(buildNavBarItem(_iconList[i], i));
+    }
+    return Row(
+      children: _navBarItemList,
+    );
+  }
+
+  Widget buildNavBarItem(IconData icon, int index) {
+    return GestureDetector(
+      onTap: () {
+        widget.onChange(index);
+        setState(() {
+          _selectIndex = index;
+        });
+      },
+      child: Container(
+        height: 60,
+        width: MediaQuery.of(context).size.width / _iconList.length,
+        decoration: index == _selectIndex
+            ? BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 4, color: Colors.purple),
+                ),
+                gradient: LinearGradient(colors: [
+                  Colors.purpleAccent.withOpacity(0.3),
+                  Colors.purpleAccent.withOpacity(0.015),
+                ], begin: Alignment.bottomCenter, end: Alignment.topCenter))
+            : BoxDecoration(),
+        child: Icon(
+          icon,
+          color: index == _selectIndex ? Colors.black : Colors.grey,
+        ),
       ),
     );
   }
