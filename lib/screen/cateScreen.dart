@@ -1,4 +1,4 @@
-//หน้าหมวดหมู่ จัดวางโครงสร้างได้เลย
+import 'package:calendar/categories/Categories.dart';
 import 'package:flutter/material.dart';
 
 class Catepage extends StatefulWidget {
@@ -18,7 +18,9 @@ class _CatepageState extends State<Catepage> {
           title: Row(
             children: <Widget>[Icon(Icons.textsms), Text("Categories")],
           )),
-      body: Center(
+      body: Category(),
+    );
+    /*Center(
         child: Padding(
           padding: EdgeInsets.all(100),
           child: FloatingActionButton(
@@ -32,7 +34,6 @@ class _CatepageState extends State<Catepage> {
                 borderRadius: new BorderRadius.circular(10)),
           ),
         ),
-      ),
-    );
+      ),*/
   }
 }
