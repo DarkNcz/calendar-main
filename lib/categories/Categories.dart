@@ -50,7 +50,7 @@ class Category extends StatelessWidget {
                 Icons.phone_android,
                 size: 40,
               ),
-              'Communication'),
+              'Communic..'),
           CategoryCard(
               Icon(
                 Icons.shopping_cart,

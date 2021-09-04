@@ -8,7 +8,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -17,7 +17,7 @@ class CategoryCard extends StatelessWidget {
         ),
         width: 100,
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(5.0),
           child: Column(
             children: <Widget>[
               icon,
@@ -25,7 +25,7 @@ class CategoryCard extends StatelessWidget {
                 height: 10,
               ),
               Text(name,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))
             ],
           ),
         ),
