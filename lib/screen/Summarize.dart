@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AnalyPage extends StatefulWidget {
+class SumPage extends StatefulWidget {
   @override
-  _AnalyPageState createState() => _AnalyPageState();
+  _SumPageState createState() => _SumPageState();
 }
 
-class _AnalyPageState extends State<AnalyPage> {
+class _SumPageState extends State<SumPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

@@ -20,20 +20,5 @@ class _CatepageState extends State<Catepage> {
           )),
       body: Category(),
     );
-    /*Center(
-        child: Padding(
-          padding: EdgeInsets.all(100),
-          child: FloatingActionButton(
-            child: Row(
-              children: <Widget>[Text("b"), Icon(Icons.navigate_next)],
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10)),
-          ),
-        ),
-      ),*/
   }
 }

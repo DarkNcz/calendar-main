@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
-class SetScreen extends StatelessWidget {
+class SetPage extends StatefulWidget {
+  @override
+  _SetPageState createState() => _SetPageState();
+}
+
+class _SetPageState extends State<SetPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("SettingPage"),
+      ),
+      body: new Center(
+        child: new Text("This is Setting"),
+      ),
     );
   }
 }

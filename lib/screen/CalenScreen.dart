@@ -1,26 +1,23 @@
 import 'package:calendar/event.dart';
-import 'package:calendar/model/BottomNavi.dart';
-import 'package:calendar/screen/cateScreen.dart';
+import 'package:calendar/model/cateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:calendar/theme/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Calendar extends StatefulWidget {
+class CalendarPage extends StatefulWidget {
   @override
   _CalendarState createState() => _CalendarState();
 }
 
-class _CalendarState extends State<Calendar> {
+class _CalendarState extends State<CalendarPage> {
   Map<DateTime, List<Event>> selectedEvents;
   CalendarFormat format = CalendarFormat.month;
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
 
   TextEditingController _eventController = TextEditingController();
-  int _currentIndex = 0;
-  int _selectedItem = 0;
 
   @override
   void initState() {
@@ -43,6 +40,9 @@ class _CalendarState extends State<Calendar> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
+        title: new Text("HomePage"),
+      ),
+      /*new AppBar(
         title: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -68,11 +68,11 @@ class _CalendarState extends State<Calendar> {
           ),
         ),
         elevation: 20,
-      ),
+      ),*/
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
               color: Colors.purple[100],
               borderRadius: BorderRadius.circular(30)),
@@ -148,6 +148,7 @@ class _CalendarState extends State<Calendar> {
           ),
         ),
       ),
+      /* bottomNavigationBar: MyBottomNavigationBar(),
       bottomNavigationBar: CustomBottomNavigationBar(
         iconList: [
           Icons.wallet_travel,
@@ -161,7 +162,7 @@ class _CalendarState extends State<Calendar> {
           });
         },
         defaultSelectedIndex: 1,
-      ),
+      ),*/
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           var rount = new MaterialPageRoute(
