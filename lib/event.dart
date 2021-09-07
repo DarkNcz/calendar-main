@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 
-class Event {
+class Diary {
   final String title;
-  Event({@required this.title});
+  Diary({@required this.title});
 
   String toString() => this.title;
 }

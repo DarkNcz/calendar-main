@@ -14,7 +14,7 @@ class Category extends StatelessWidget {
                 Icons.train,
                 size: 40,
               ),
-              'Traffic'),
+              'เดินทาง'),
           CategoryCard(
               Icon(
                 Icons.table_chart,
@@ -23,64 +23,118 @@ class Category extends StatelessWidget {
               'Daily'),
           CategoryCard(
               Icon(
-                Icons.local_pizza,
+                Icons.fastfood_outlined,
                 size: 40,
               ),
-              'Diet'),
+              'อาหาร'),
           CategoryCard(
               Icon(
-                Icons.no_drinks_outlined,
+                Icons.celebration_outlined,
                 size: 40,
               ),
-              'Social'),
+              'สังคม'),
           CategoryCard(
               Icon(
-                Icons.home,
+                Icons.apartment,
                 size: 40,
               ),
-              'Residantial'),
+              'ที่พัก'),
           CategoryCard(
               Icon(
-                Icons.add_box,
+                Icons.card_giftcard,
                 size: 40,
               ),
-              'Gift'),
+              'ของขวัญ'),
           CategoryCard(
               Icon(
                 Icons.phone_android,
                 size: 40,
               ),
-              'Communic..'),
+              'อินเตอร์เน็ต'),
           CategoryCard(
               Icon(
                 Icons.shopping_cart,
                 size: 40,
               ),
-              'Dress'),
+              'การแต่งกาย'),
           CategoryCard(
               Icon(
                 Icons.movie,
                 size: 40,
               ),
-              'Recreation'),
+              'ภาพยนต์'),
           CategoryCard(
               Icon(
                 Icons.brush,
                 size: 40,
               ),
-              'Beauty'),
+              'ความงาม'),
           CategoryCard(
               Icon(
                 Icons.medical_services,
                 size: 40,
               ),
-              'Medical'),
+              'โรงพยาบาล'),
           CategoryCard(
               Icon(
-                Icons.money_off_csred_rounded,
+                Icons.monetization_on_outlined,
                 size: 40,
               ),
-              'Tax'),
+              'ภาษี'),
+          CategoryCard(
+              Icon(
+                Icons.airplanemode_active,
+                size: 40,
+              ),
+              'ท่องเที่ยว'),
+          CategoryCard(
+              Icon(
+                Icons.camera_alt_outlined,
+                size: 40,
+              ),
+              'รูป'),
+          CategoryCard(
+              Icon(
+                Icons.casino_rounded,
+                size: 40,
+              ),
+              'พนัน'),
+          CategoryCard(
+              Icon(
+                Icons.chair_rounded,
+                size: 40,
+              ),
+              'เฟอร์นิเจอร์'),
+          CategoryCard(
+              Icon(
+                Icons.coffee,
+                size: 40,
+              ),
+              'เครื่องดื่ม'),
+          CategoryCard(
+              Icon(
+                Icons.ice_skating_outlined,
+                size: 40,
+              ),
+              'กีฬา'),
+          CategoryCard(
+              Icon(
+                Icons.local_gas_station_outlined,
+                size: 40,
+              ),
+              'น้ำมัน'),
+          CategoryCard(
+              Icon(
+                Icons.pets_outlined,
+                size: 40,
+              ),
+              'สัตว์เลี้ยง'),
+          CategoryCard(
+              Icon(
+                Icons.sports_esports_rounded,
+                size: 40,
+              ),
+              'เกมส์'),
         ],
       ),
     );

@@ -12,7 +12,9 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarState extends State<CalendarPage> {
-  Map<DateTime, List<Event>> selectedEvents;
+  //เกี่ยวกับ Diary
+  Map<DateTime, List<Diary>> selectedEvents;
+
   CalendarFormat format = CalendarFormat.month;
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
@@ -25,7 +27,8 @@ class _CalendarState extends State<CalendarPage> {
     super.initState();
   }
 
-  List<Event> _getEventsfromDay(DateTime date) {
+//เกี่ยวกับ Diary
+  List<Diary> _getEventsfromDay(DateTime date) {
     return selectedEvents[date] ?? [];
   }
 
@@ -38,7 +41,7 @@ class _CalendarState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      //backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
         title: new Text("HomePage"),
       ),
@@ -137,8 +140,9 @@ class _CalendarState extends State<CalendarPage> {
                   ),
                 ),
               ),
+              //เกี่ยวกับDiary
               ..._getEventsfromDay(selectedDay).map(
-                (Event event) => ListTile(
+                (Diary event) => ListTile(
                   title: Text(
                     event.title,
                   ),
@@ -170,7 +174,7 @@ class _CalendarState extends State<CalendarPage> {
           Navigator.of(context).push(rount);
         },
         label: Text("Add"),
-        icon: Icon(Icons.add),
+        icon: Icon(Icons.border_color_outlined),
       ),
     );
   }

@@ -13,7 +13,7 @@ class CategoryCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: [BoxShadow(blurRadius: 5, color: Colors.blueGrey)],
+          boxShadow: [BoxShadow(blurRadius: 5, color: Colors.green[400])],
         ),
         width: 100,
         child: Padding(
