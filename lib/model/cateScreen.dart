@@ -16,7 +16,7 @@ class _CatepageState extends State<Catepage> {
       appBar: AppBar(
           automaticallyImplyLeading: true,
           title: Row(
-            children: <Widget>[Icon(Icons.textsms), Text("Categories")],
+            children: <Widget>[Icon(Icons.textsms), Text("  หมวดหมู่")],
           )),
       body: Category(),
     );

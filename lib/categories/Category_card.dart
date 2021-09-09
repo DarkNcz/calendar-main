@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
   final Icon icon;
-  final String name;
+  //final String name;this.name
 
-  CategoryCard(this.icon, this.name);
+  CategoryCard(
+    this.icon,
+  );
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,8 +26,8 @@ class CategoryCard extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(name,
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))
+              /*Text(name,
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))*/
             ],
           ),
         ),

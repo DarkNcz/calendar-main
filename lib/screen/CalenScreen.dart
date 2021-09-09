@@ -1,10 +1,7 @@
 import 'package:calendar/event.dart';
 import 'package:calendar/model/cateScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:calendar/theme/theme.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CalendarPage extends StatefulWidget {
   @override
@@ -43,35 +40,9 @@ class _CalendarState extends State<CalendarPage> {
     return Scaffold(
       //backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text("HomePage"),
+        title: new Text("จดบันทึก"),
       ),
-      /*new AppBar(
-        title: new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Calendar",
-                  style: Theme.of(context).primaryTextTheme.headline1),
-              Consumer<ThemeNotifier>(
-                  builder: (context, notifier, child) => IconButton(
-                      icon: notifier.isDarkTheme
-                          ? FaIcon(
-                              FontAwesomeIcons.moon,
-                              size: 20,
-                              color: Colors.white,
-                            )
-                          : Icon(Icons.wb_sunny),
-                      onPressed: () => {notifier.toggleTheme()}))
-            ]),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.red[200], Colors.blue[200]],
-                begin: Alignment.bottomRight,
-                end: Alignment.topLeft),
-          ),
-        ),
-        elevation: 20,
-      ),*/
+
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
@@ -152,28 +123,13 @@ class _CalendarState extends State<CalendarPage> {
           ),
         ),
       ),
-      /* bottomNavigationBar: MyBottomNavigationBar(),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        iconList: [
-          Icons.wallet_travel,
-          Icons.calendar_today,
-          Icons.pie_chart,
-          Icons.settings,
-        ],
-        onChange: (val) {
-          setState(() {
-            _selectedItem = val;
-          });
-        },
-        defaultSelectedIndex: 1,
-      ),*/
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           var rount = new MaterialPageRoute(
               builder: (BuildContext contex) => new Catepage());
           Navigator.of(context).push(rount);
         },
-        label: Text("Add"),
+        label: Text("เพิ่ม"),
         icon: Icon(Icons.border_color_outlined),
       ),
     );
