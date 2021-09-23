@@ -36,6 +36,8 @@ dependencies:
   provider: ^4.0.5
   transparent_image: ^1.0.0
   math_expressions: ^2.0.0
+  sqflite:
+  intl:
 
 dev_dependencies:
   flutter_test:

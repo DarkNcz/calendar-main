@@ -54,12 +54,12 @@ class Category {
 }
 
 final kCategories = [
-  Category('อาหาร', amount: 4000.00),
+  Category('อาหาร', amount: 2000.00),
   Category('เครื่องดื่ม', amount: 300.00),
   Category('เดินทาง', amount: 1000.00),
-  Category('เกมส์', amount: 500.00),
-  Category('ของขวัญ', amount: 400.00),
-  Category('โรงพยาบาล', amount: 1500.00),
+  Category('เกมส์', amount: 200.00),
+  Category('ของขวัญ', amount: 500.00),
+  Category('โรงพยาบาล', amount: 500.00),
 ];
 
 final kNeumorphicColors = [
